@@ -23,8 +23,8 @@ export default async function HomePage() {
         headline={hero?.headline || 'Têxteis Personalizados para Marcas que Inspiram'}
         subheadline={hero?.subheadline}
         backgroundImage={hero?.backgroundImage}
-        ctaLabel={hero?.ctaLabel}
-        ctaHref={hero?.ctaHref}
+        ctaLabel={hero?.ctaLabel || 'Ver Produtos'}
+        ctaHref={hero?.ctaHref || '/catalogo'}
         overlayOpacity={hero?.overlayOpacity}
       />
 

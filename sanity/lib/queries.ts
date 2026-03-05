@@ -15,7 +15,7 @@ const imageFragment = /* groq */ `
 // ─── Site Settings ───────────────────────────────────────────────────────────
 
 export const SITE_SETTINGS_QUERY = defineQuery(`
-  *[_type == "siteSettings"][0]{
+  *[_type == "siteSettings" && _id == "siteSettings"][0]{
     siteName,
     logo { ${imageFragment} },
     navigationLinks[] { label, href },
@@ -31,7 +31,7 @@ export const SITE_SETTINGS_QUERY = defineQuery(`
 // ─── Hero Banner ─────────────────────────────────────────────────────────────
 
 export const HERO_BANNER_QUERY = defineQuery(`
-  *[_type == "heroBanner"][0]{
+  *[_type == "heroBanner" && _id == "heroBanner"][0]{
     headline,
     subheadline,
     backgroundImage { ${imageFragment} },
@@ -97,7 +97,7 @@ export const PRODUCT_SLUGS_QUERY = defineQuery(`
 // ─── About Page ──────────────────────────────────────────────────────────────
 
 export const ABOUT_PAGE_QUERY = defineQuery(`
-  *[_type == "aboutPage"][0]{
+  *[_type == "aboutPage" && _id == "aboutPage"][0]{
     heroImage { ${imageFragment} },
     heroHeadline,
     sections[] {
