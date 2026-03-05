@@ -84,6 +84,10 @@ export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
   }
 `)
 
+export const PRODUCT_NAMES_QUERY = defineQuery(`
+  *[_type == "product"] | order(order asc) { name }
+`)
+
 export const PRODUCT_SLUGS_QUERY = defineQuery(`
   *[_type == "product" && defined(slug.current)] {
     "slug": slug.current

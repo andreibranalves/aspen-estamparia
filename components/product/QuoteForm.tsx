@@ -4,9 +4,10 @@ import { useState } from 'react'
 
 interface QuoteFormProps {
   productName?: string
+  products?: string[]
 }
 
-export function QuoteForm({ productName }: QuoteFormProps) {
+export function QuoteForm({ productName, products }: QuoteFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -94,13 +95,27 @@ export function QuoteForm({ productName }: QuoteFormProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input
-          type="text"
-          placeholder="Produto de interesse"
-          value={formData.product}
-          onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-          className={inputClass}
-        />
+        {products && products.length > 0 ? (
+          <select
+            value={formData.product}
+            onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+            className={inputClass}
+          >
+            <option value="">Produto de interesse</option>
+            {products.map((p) => (
+              <option key={p} value={p}>{p}</option>
+            ))}
+            <option value="Outros">Outros</option>
+          </select>
+        ) : (
+          <input
+            type="text"
+            placeholder="Produto de interesse"
+            value={formData.product}
+            onChange={(e) => setFormData({ ...formData, product: e.target.value })}
+            className={inputClass}
+          />
+        )}
         <input
           type="number"
           placeholder="Quantidade estimada"
