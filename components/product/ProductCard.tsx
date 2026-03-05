@@ -9,14 +9,6 @@ const CATEGORY_LABELS: Record<string, string> = {
   outro: 'Outro',
 }
 
-// Unsplash textile fallbacks per category
-const FALLBACK_IMAGES: Record<string, string> = {
-  canga: 'https://images.unsplash.com/photo-1507098977-b609a2abd7de?w=800&q=80',
-  toalha: 'https://images.unsplash.com/photo-1631824783596-f4fe96d2f5f7?w=800&q=80',
-  lenco: 'https://images.unsplash.com/photo-1561052967-61fc91e48d79?w=800&q=80',
-  outro: 'https://images.unsplash.com/photo-1558171813-aa3d50b24e07?w=800&q=80',
-}
-
 interface ProductCardProps {
   name: string
   slug: string
@@ -30,9 +22,10 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ name, slug, category, minOrderQty, mainImage, compact = false }: ProductCardProps) {
-  const imageUrl = mainImage?.asset
-    ? urlFor(mainImage).width(800).height(compact ? 600 : 700).fit('crop').url()
-    : FALLBACK_IMAGES[category] || FALLBACK_IMAGES.outro
+  const hasImage = !!mainImage?.asset
+  const imageUrl = hasImage
+    ? urlFor(mainImage!).width(800).height(compact ? 600 : 700).fit('crop').url()
+    : ''
 
   const lqip = mainImage?.asset?.metadata?.lqip
 
@@ -40,14 +33,20 @@ export function ProductCard({ name, slug, category, minOrderQty, mainImage, comp
     <Link href={`/produtos/${slug}`} className="group block overflow-hidden">
       {/* Image */}
       <div className={`relative overflow-hidden bg-surface ${compact ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
-        <Image
-          src={imageUrl}
-          alt={mainImage?.alt || name}
-          fill
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          placeholder={lqip ? 'blur' : 'empty'}
-          blurDataURL={lqip}
-        />
+        {hasImage ? (
+          <Image
+            src={imageUrl}
+            alt={mainImage?.alt || name}
+            fill
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            placeholder={lqip ? 'blur' : 'empty'}
+            blurDataURL={lqip}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <p className="font-sans text-xs text-text-muted tracking-widest uppercase">Imagem em breve</p>
+          </div>
+        )}
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-text-primary/0 group-hover:bg-text-primary/10 transition-colors duration-500" />
 
