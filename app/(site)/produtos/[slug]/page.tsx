@@ -1,3 +1,6 @@
+export const revalidate = 60
+export const dynamicParams = true
+
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
@@ -84,7 +87,7 @@ export default async function ProductPage({ params }: PageProps) {
             )}
 
             {/* Material Specs */}
-            {product.materialSpecs && (
+            {Array.isArray(product.materialSpecs) && product.materialSpecs.length > 0 && (
               <div className="mb-10">
                 <p className="label-tag mb-5">Especificações</p>
                 <div className="border border-accent/20 divide-y divide-accent/20">

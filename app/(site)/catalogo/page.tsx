@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { Metadata } from 'next'
 import { client } from '@/sanity/lib/client'
 import { PRODUCTS_QUERY } from '@/sanity/lib/queries'

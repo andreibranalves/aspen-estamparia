@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { client } from '@/sanity/lib/client'
 import { HERO_BANNER_QUERY, FEATURED_PRODUCTS_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import { HeroBanner } from '@/components/hero/HeroBanner'
