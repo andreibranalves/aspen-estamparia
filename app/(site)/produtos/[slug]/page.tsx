@@ -88,22 +88,14 @@ export default async function ProductPage({ params }: PageProps) {
               <div className="mb-10">
                 <p className="label-tag mb-5">Especificações</p>
                 <div className="border border-accent/20 divide-y divide-accent/20">
-                  {Object.entries(product.materialSpecs as Record<string, string>)
-                    .filter(([, v]) => v)
-                    .map(([key, value]) => {
-                      const labels: Record<string, string> = {
-                        material: 'Material',
-                        dimensions: 'Dimensões',
-                        weight: 'Gramatura',
-                        composition: 'Composição',
-                      }
-                      return (
-                        <div key={key} className="flex justify-between items-center px-5 py-3">
-                          <span className="font-sans text-xs text-text-muted tracking-wide">{labels[key] || key}</span>
-                          <span className="font-sans text-sm text-text-primary">{value}</span>
-                        </div>
-                      )
-                    })}
+                  {(product.materialSpecs as Array<{ _key: string; label: string; value: string }>)
+                    .filter((spec) => spec.value)
+                    .map((spec) => (
+                      <div key={spec._key} className="flex justify-between items-center px-5 py-3">
+                        <span className="font-sans text-xs text-text-muted tracking-wide">{spec.label}</span>
+                        <span className="font-sans text-sm text-text-primary">{spec.value}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             )}

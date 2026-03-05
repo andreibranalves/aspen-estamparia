@@ -59,12 +59,18 @@ export const product = defineType({
     defineField({
       name: 'materialSpecs',
       title: 'Especificações de Material',
-      type: 'object',
-      fields: [
-        defineField({ name: 'material', type: 'string', title: 'Material' }),
-        defineField({ name: 'dimensions', type: 'string', title: 'Dimensões' }),
-        defineField({ name: 'weight', type: 'string', title: 'Gramatura' }),
-        defineField({ name: 'composition', type: 'string', title: 'Composição' }),
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({ name: 'label', type: 'string', title: 'Título do campo' }),
+            defineField({ name: 'value', type: 'string', title: 'Valor' }),
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'value' },
+          },
+        }),
       ],
     }),
     defineField({
@@ -72,7 +78,6 @@ export const product = defineType({
       title: 'Opções de Personalização',
       type: 'array',
       of: [defineArrayMember({ type: 'string' })],
-      options: { layout: 'tags' },
     }),
     defineField({
       name: 'minOrderQty',
