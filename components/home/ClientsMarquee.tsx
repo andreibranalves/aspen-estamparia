@@ -10,7 +10,7 @@ const LOGOS = [
 
 export function ClientsMarquee() {
   return (
-    <section className="py-16 bg-surface border-y border-accent/20 overflow-hidden">
+    <section className="py-16 bg-background overflow-hidden">
       <div className="container-content mb-10 text-center">
         <p className="label-tag mb-4">Realizamos projetos para diversos segmentos</p>
         <h2 className="font-serif text-display-md text-text-primary">Alguns de nossos clientes</h2>
@@ -20,11 +20,11 @@ export function ClientsMarquee() {
       <div className="relative">
         <div
           className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to right, var(--color-surface), transparent)' }}
+          style={{ background: 'linear-gradient(to right, var(--color-background), transparent)' }}
         />
         <div
           className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(to left, var(--color-surface), transparent)' }}
+          style={{ background: 'linear-gradient(to left, var(--color-background), transparent)' }}
         />
 
         <div className="flex marquee-track">
