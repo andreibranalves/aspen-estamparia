@@ -77,7 +77,7 @@ export const PRODUCT_BY_SLUG_QUERY = defineQuery(`
     category,
     description,
     images[] { ${imageFragment} },
-    materialSpecs,
+    materialSpecs[] { _key, label, value },
     customizationOptions,
     minOrderQty,
     featured
