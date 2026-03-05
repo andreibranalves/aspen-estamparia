@@ -12,7 +12,8 @@ export function ClientsMarquee() {
   return (
     <section className="py-16 bg-surface border-y border-accent/20 overflow-hidden">
       <div className="container-content mb-10 text-center">
-        <p className="label-tag">Alguns de nossos clientes</p>
+        <p className="label-tag mb-4">Realizamos projetos para diversos segmentos</p>
+        <h2 className="font-serif text-display-md text-text-primary">Alguns de nossos clientes</h2>
       </div>
 
       {/* Track with fade edges */}
