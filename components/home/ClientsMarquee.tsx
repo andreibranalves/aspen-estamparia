@@ -17,7 +17,7 @@ export function ClientsMarquee() {
       </div>
 
       {/* Track with fade edges */}
-      <div className="relative">
+      <div className="relative mx-auto" style={{ width: '70%' }}>
         <div
           className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
           style={{ background: 'linear-gradient(to right, var(--color-background), transparent)' }}
