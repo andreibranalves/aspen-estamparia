@@ -6,6 +6,7 @@ import { HeroBanner } from '@/components/hero/HeroBanner'
 import { BrandStatement } from '@/components/home/BrandStatement'
 import { ProcessStrip } from '@/components/home/ProcessStrip'
 import { CTABanner } from '@/components/home/CTABanner'
+import { ClientsMarquee } from '@/components/home/ClientsMarquee'
 import { ProductCard } from '@/components/product/ProductCard'
 import Link from 'next/link'
 
@@ -75,6 +76,9 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Clients Marquee */}
+      <ClientsMarquee />
 
       {/* Process */}
       <ProcessStrip />

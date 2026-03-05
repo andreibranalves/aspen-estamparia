@@ -26,6 +26,20 @@
   }
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center bg-cta text-white font-sans text-sm font-medium tracking-widest uppercase px-8 py-4 transition-colors duration-300 hover:bg-cta-hover;
