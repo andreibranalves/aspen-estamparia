@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #F5F0EA;
+    --color-surface: #EDE8E0;
+    --color-text: #1C1C1A;
+    --color-text-muted: #6B6560;
+    --color-accent: #C9B99A;
+    --color-cta: #3D4A3E;
+    --color-cta-hover: #2E382F;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-cta text-white font-sans text-sm font-medium tracking-widest uppercase px-8 py-4 transition-colors duration-300 hover:bg-cta-hover;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-text-primary text-text-primary font-sans text-sm font-medium tracking-widest uppercase px-8 py-4 transition-colors duration-300 hover:bg-text-primary hover:text-background;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center border border-white text-white font-sans text-sm font-medium tracking-widest uppercase px-8 py-4 transition-colors duration-300 hover:bg-white hover:text-text-primary;
+  }
+
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  .container-content {
+    @apply mx-auto max-w-content px-6 lg:px-12;
+  }
+
+  .label-tag {
+    @apply font-sans text-xs font-medium tracking-widest uppercase text-text-muted;
+  }
+}
