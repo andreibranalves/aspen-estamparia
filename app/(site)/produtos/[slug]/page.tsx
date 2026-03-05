@@ -7,7 +7,6 @@ import { client } from '@/sanity/lib/client'
 import { PRODUCT_BY_SLUG_QUERY, PRODUCT_SLUGS_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import { ImageGallery } from '@/components/product/ImageGallery'
 import { PortableTextRenderer } from '@/components/product/PortableTextRenderer'
-import { QuoteForm } from '@/components/product/QuoteForm'
 import Link from 'next/link'
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -134,18 +133,6 @@ export default async function ProductPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Quote Form */}
-        <div className="mt-24 pt-16 border-t border-accent/20">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="label-tag mb-4">Solicitar Orçamento</p>
-              <h2 className="font-serif text-display-md text-text-primary">
-                Vamos criar algo único juntos
-              </h2>
-            </div>
-            <QuoteForm productName={product.name} />
-          </div>
-        </div>
       </div>
     </div>
   )
