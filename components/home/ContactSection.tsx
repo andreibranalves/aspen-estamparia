@@ -7,7 +7,7 @@ export async function ContactSection() {
   const productNames: string[] = (productDocs || []).map((p: { name: string }) => p.name)
 
   return (
-    <section id="orcamento" className="section-padding bg-background border-t border-accent/20">
+    <section id="orcamento" className="section-padding bg-background">
       <div className="container-content">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">

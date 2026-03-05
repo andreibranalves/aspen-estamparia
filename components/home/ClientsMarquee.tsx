@@ -10,7 +10,7 @@ const LOGOS = [
 
 export function ClientsMarquee() {
   return (
-    <section className="py-16 bg-background overflow-hidden">
+    <section className="section-padding bg-background overflow-hidden">
       <div className="container-content mb-10 text-center">
         <p className="label-tag mb-4">Realizamos projetos para diversos segmentos</p>
         <h2 className="font-serif text-display-md text-text-primary">Alguns de nossos clientes</h2>
