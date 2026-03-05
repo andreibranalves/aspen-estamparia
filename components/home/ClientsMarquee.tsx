@@ -36,7 +36,7 @@ export function ClientsMarquee() {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto opacity-40 grayscale transition-all duration-500 hover:opacity-80 hover:grayscale-0"
+                className="h-16 w-auto opacity-40 grayscale transition-all duration-500 hover:opacity-80 hover:grayscale-0"
               />
             </div>
           ))}
