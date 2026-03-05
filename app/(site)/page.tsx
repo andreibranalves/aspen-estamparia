@@ -32,9 +32,6 @@ export default async function HomePage() {
       {/* Brand Statement */}
       <BrandStatement />
 
-      {/* Clients Marquee */}
-      <ClientsMarquee />
-
       {/* Featured Products */}
       {featuredProducts && featuredProducts.length > 0 && (
         <section className="section-padding bg-background">
@@ -85,6 +82,9 @@ export default async function HomePage() {
 
       {/* CTA */}
       <CTABanner contactWhatsApp={settings?.contactWhatsApp} />
+
+      {/* Clients Marquee */}
+      <ClientsMarquee />
     </>
   )
 }
