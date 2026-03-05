@@ -1,3 +1,5 @@
+export const revalidate = 60
+
 import { client } from '@/sanity/lib/client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/queries'
 import { Header } from '@/components/layout/Header'
