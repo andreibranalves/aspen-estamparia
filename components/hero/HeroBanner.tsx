@@ -15,9 +15,6 @@ interface HeroBannerProps {
   overlayOpacity?: number
 }
 
-// Unsplash fallback for textile/fabric imagery
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1558171813-aa3d50b24e07?w=1920&q=85'
-
 export function HeroBanner({
   headline,
   subheadline,
@@ -26,30 +23,35 @@ export function HeroBanner({
   ctaHref = '/catalogo',
   overlayOpacity = 45,
 }: HeroBannerProps) {
-  const imageUrl = backgroundImage?.asset
-    ? urlFor(backgroundImage).width(1920).height(1080).fit('crop').url()
-    : FALLBACK_IMAGE
+  const hasImage = !!backgroundImage?.asset
+  const imageUrl = hasImage
+    ? urlFor(backgroundImage!).width(1920).height(1080).fit('crop').url()
+    : ''
 
   const lqip = backgroundImage?.asset?.metadata?.lqip
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <Image
-          src={imageUrl}
-          alt={backgroundImage?.alt || 'Aspen Estamparia'}
-          fill
-          priority
-          className="object-cover object-center"
-          placeholder={lqip ? 'blur' : 'empty'}
-          blurDataURL={lqip}
-        />
-        {/* Overlay */}
-        <div
-          className="absolute inset-0 bg-text-primary"
-          style={{ opacity: (overlayOpacity ?? 45) / 100 }}
-        />
+      {/* Background */}
+      <div className="absolute inset-0 bg-text-primary">
+        {hasImage && (
+          <>
+            <Image
+              src={imageUrl}
+              alt={backgroundImage?.alt || 'Aspen Estamparia'}
+              fill
+              priority
+              className="object-cover object-center"
+              placeholder={lqip ? 'blur' : 'empty'}
+              blurDataURL={lqip}
+            />
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-text-primary"
+              style={{ opacity: (overlayOpacity ?? 45) / 100 }}
+            />
+          </>
+        )}
       </div>
 
       {/* Content */}
