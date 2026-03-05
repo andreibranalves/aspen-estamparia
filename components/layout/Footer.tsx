@@ -31,7 +31,7 @@ export function Footer({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-serif text-2xl tracking-wide mb-4">{siteName}</p>
+            <img src="/logo-branca.svg" alt={siteName} className="h-8 w-auto mb-4" />
             <p className="font-sans text-sm text-background/60 leading-relaxed max-w-xs">
               Têxteis personalizados de alta qualidade para marcas corporativas exigentes.
             </p>

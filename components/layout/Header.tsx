@@ -24,8 +24,8 @@ export function Header({ siteName, navigationLinks, contactWhatsApp }: HeaderPro
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-accent/20">
       <div className="container-content flex items-center justify-between h-18 py-4">
         {/* Logo / Brand */}
-        <Link href="/" className="font-serif text-xl tracking-wide text-text-primary hover:text-cta transition-colors">
-          {siteName}
+        <Link href="/" aria-label={siteName}>
+          <img src="/logo-verde.svg" alt={siteName} className="h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}
